@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltage Dev Docs - Comitting Code</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css?ver=0.1" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="d-flex" id="wrapper">
+
+<!-- Sidebar -->
+<div class="bg-light border-right" id="sidebar-wrapper">
+  <div class="sidebar-heading">Voltage Dev Docs</div>
+  <div class="list-group list-group-flush">
+      <a href="./" class="list-group-item list-group-item-action">Overview</a>
+      <a href="./tools.html" class="list-group-item list-group-item-action">Tools</a>
+      <a href="./testing.html" class="list-group-item list-group-item-action">Testing</a>
+      <a href="./code.html" class="list-group-item list-group-item-action">Committing Code</a>
+      <a href="./standards.html" class="list-group-item list-group-item-action">Code Standards</a>
+  </div>
+</div>
+<!-- /#sidebar-wrapper -->
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle">Hide Menu</button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Hide Menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://voltagekc.com" target="_blank" rel="noreferrer">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+  <div class="container-fluid">
+    <h1 class="mt-4">Committing Code</h1>
+    <hr>
+    <h2 class="mt-4">Branching</h2>
+    <p>Branching is an important tool to prevent missing code and merge conflicts.</p>
+    <h3 class="mt-4">Naming</h3>
+    <p>We will be using three different naming conventions for branches. First is the master branch which is the same as live. Second is the dev branch which is the same as staging. Third is the feature branch which is for specific features.</p>
+    <h4 class="mt-3">Master Branch</h4>
+    <p>Checkout the master branch.</p>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git checkout master</code></pre>
+    <h4 class="mt-3">Dev Branch</h4>
+    <p>Checkout the dev branch.</p>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git checkout dev</code></pre>
+    <p>Create the dev branch if there isn't one.</p>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git checkout -b dev</code></pre>
+    <h4 class="mt-3">Feature Branch</h4>
+    <p>Checkout the feature branch.</p>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git checkout feature/mobile-styling</code></pre>
+    <p>Create the feature branch if there isn't one.</p>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git checkout -b feature/mobile-styling</code></pre>
+    <h3 class="mt-4">Pulling from Bitbucket</h2>
+    <p>When pulling from Bitbucket you can either pull all available branches (recommended) or pull single branches.</p>
+    <h4 class="mt-3">All Branches</h4>
+    <p>If you haven't already pulled the repository:</p>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git clone https://voltagekc@bitbucket.org/voltagekc/voltage.git
+      git fetch
+      git checkout dev</code></pre>
+    <p>If you already have the repository:</p>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git fetch
+      git checkout dev</code></pre>
+    <h4 class="mt-3">Individual Branches</h4>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git branch -f feature/mobile-styling origin/feature/mobile-styling 
+      git checkout feature/mobile-styling</code></pre>  
+    <h3 class="mt-4">Pushing to Bitbucket</h2>
+    <p>Pushing to Bitbucket will differ depending on the branch that's going to be pushed. Double check the branch you are on by typing <code>git branch</code></p>
+    <h4 class="mt-3">Master Branch</h4>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git checkout master
+      git push origin master</code></pre>
+    <h4 class="mt-3">Dev Branch</h4>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git checkout dev
+      git push origin dev</code></pre>
+    <h4 class="mt-3">Feature Branch</h4>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git checkout feature/mobile-styling
+      git push origin feature/mobile-styling</code></pre>
+    <hr>
+    <h2 class="mt-4">Merging Branches</h2>
+    <div class="p-3 mb-2 bg-danger text-white">
+      <strong>Warning:</strong> Only the code reviewer or project lead should be merging branches.
+    </div>
+    <p>Before going live all code will need to be merged from dev to master. If this is code that has not gone live previously nothing should be in the master branch. You should never merge code to a feature branch.</p>
+    <h4 class="mt-3">Master Branch</h4>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git checkout master
+      git merge dev</code></pre>
+    <h4 class="mt-3">Dev Branch</h4>
+    <pre class="pre-line bg-dark text-white p-3 mb-3"><code>git checkout dev
+      git merge feature/mobile-styling</code></pre>
+  </div>
+
+  <footer class="p-4 mt-5 bg-light border-top">
+    Copyright 2023 Voltage
+</footer>
+
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Bootstrap core JavaScript -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+  e.preventDefault();
+  $(this).text(function(i, text){
+      return text === "Hide Menu" ? "Show Menu" : "Hide Menu";
+  });
+  $("#wrapper").toggleClass("toggled");
+});
+</script>
+
+</body>
+
+</html>
